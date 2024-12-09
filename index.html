@@ -143,7 +143,196 @@
             </div>
             <!-- Third Slide -->
             <div class="slide" id="slide-3">
-
+                <h2>Daily liquid intake</h2>
+                <div class="input-field-container" id="liquid-field-container">
+                    <div style="display: flex; justify-content: space-between; align-items: first baseline;">
+                        <label for="liquid">How Many Glasses Do You Consume?</label>
+                        <img id="liquid-info-button" class="info-btn" src="./img/info-button-icon.svg" alt="i">
+                    </div>
+                    <div class="liquid-input-field" id="liquid">
+                        <!-- Water -->
+                        <div class="liquid-input-child">
+                            <div class="liquid-input-title">
+                                Water <small id="water-unit"
+                                    style="color: #33333399; display: inline-block;">(25cl)</small>
+                            </div>
+                            <div style="display: flex; justify-content: center; align-items: center;">
+                                <button type="button" id="decrement-water" class="inc-dec-btn">-</button>
+                                <div
+                                    style="display: flex; justify-content: center; align-items: center; min-width: 90px; max-height: 45px;">
+                                    <input type="number" id="water" min="0" max="15" value="0" class="water-input"
+                                        readonly>
+                                    <img id="water-icon" src="./img/water.svg" alt="Zero Water" class="img-icon-zero">
+                                </div>
+                                <button type="button" id="increment-water" class="inc-dec-btn">+</button>
+                            </div>
+                        </div>
+                        <!-- Soda -->
+                        <div class="liquid-input-child">
+                            <div class="liquid-input-title">
+                                Soda <small id="soda-unit"
+                                    style="color: #33333399; display: inline-block;">(33cl)</small>
+                            </div>
+                            <div style="display: flex; justify-content: center; align-items: center;">
+                                <button type="button" id="decrement-soda" class="inc-dec-btn">-</button>
+                                <div
+                                    style="display: flex; justify-content: center; align-items: center; min-width: 90px; max-height: 45px;">
+                                    <input type="number" id="soda" min="0" max="15" value="0" class="soda-input"
+                                        readonly>
+                                    <img id="soda-icon" src="./img/soda.svg" alt="Zero Soda" class="img-icon-zero">
+                                </div>
+                                <button type="button" id="increment-soda" class="inc-dec-btn">+</button>
+                            </div>
+                        </div>
+                        <!-- Diet Soda -->
+                        <div class="liquid-input-child">
+                            <div class="liquid-input-title">
+                                Diet Soda <small id="diet-soda-unit"
+                                    style="color: #33333399; display: inline-block;">(33cl)</small>
+                            </div>
+                            <div style="display: flex; justify-content: center; align-items: center;">
+                                <button type="button" id="decrement-diet-soda" class="inc-dec-btn">-</button>
+                                <div
+                                    style="display: flex; justify-content: center; align-items: center; min-width: 90px; max-height: 45px;">
+                                    <input type="number" id="diet-soda" min="0" max="15" value="0"
+                                        class="diet-soda-input" readonly>
+                                    <img id="diet-soda-icon" src="./img/diet-soda.svg" alt="Zero Diet Soda"
+                                        class="img-icon-zero">
+                                </div>
+                                <button type="button" id="increment-diet-soda" class="inc-dec-btn">+</button>
+                            </div>
+                        </div>
+                        <!-- Fruit Juice -->
+                        <div class="liquid-input-child">
+                            <div class="liquid-input-title">
+                                Fruit Juice <small id="fruit-juice-unit"
+                                    style="color: #33333399; display: inline-block;">(25cl)</small>
+                            </div>
+                            <div style="display: flex; justify-content: center; align-items: center;">
+                                <button type="button" id="decrement-fruit-juice" class="inc-dec-btn">-</button>
+                                <div
+                                    style="display: flex; justify-content: center; align-items: center; min-width: 90px; max-height: 45px;">
+                                    <input type="number" id="fruit-juice" min="0" max="15" value="0"
+                                        class="fruit-juice-input" readonly>
+                                    <img id="fruit-juice-icon" src="./img/fruit-juice.svg" alt="Zero Fruit Juice"
+                                        class="img-icon-zero">
+                                </div>
+                                <button type="button" id="increment-fruit-juice" class="inc-dec-btn">+</button>
+                            </div>
+                        </div>
+                        <!-- Coffee Sugar -->
+                        <div class="liquid-input-child">
+                            <div class="liquid-input-title">
+                                Coffee or tea with Sugar <small id="coffee-sugar-unit"
+                                    style="color: #33333399; display: inline-block;">(12.5cl)</small>
+                            </div>
+                            <div style="display: flex; justify-content: center; align-items: center;">
+                                <button type="button" id="decrement-coffee-sugar" class="inc-dec-btn">-</button>
+                                <div
+                                    style="display: flex; justify-content: center; align-items: center; min-width: 90px; max-height: 45px;">
+                                    <input type="number" id="coffee-sugar" min="0" max="15" value="0"
+                                        class="coffee-sugar-input" readonly>
+                                    <img id="coffee-sugar-icon" src="./img/coffee-sugar.svg" alt="Zero Coffee Sugar"
+                                        class="img-icon-zero">
+                                </div>
+                                <button type="button" id="increment-coffee-sugar" class="inc-dec-btn">+</button>
+                            </div>
+                        </div>
+                        <!-- Coffee -->
+                        <div class="liquid-input-child">
+                            <div class="liquid-input-title">
+                                Coffee or tea <small id="coffee-unit"
+                                    style="color: #33333399; display: inline-block;">(12.5cl)</small>
+                            </div>
+                            <div style="display: flex; justify-content: center; align-items: center;">
+                                <button type="button" id="decrement-coffee" class="inc-dec-btn">-</button>
+                                <div
+                                    style="display: flex; justify-content: center; align-items: center; min-width: 90px; max-height: 45px;">
+                                    <input type="number" id="coffee" min="0" max="15" value="0" class="coffee-input"
+                                        readonly>
+                                    <img id="coffee-icon" src="./img/coffee.svg" alt="Zero Coffee"
+                                        class="img-icon-zero">
+                                </div>
+                                <button type="button" id="increment-coffee" class="inc-dec-btn">+</button>
+                            </div>
+                        </div>
+                        <!-- Wine -->
+                        <div class="liquid-input-child">
+                            <div class="liquid-input-title">
+                                Wine <small id="wine-unit"
+                                    style="color: #33333399; display: inline-block;">(12.5cl)</small>
+                            </div>
+                            <div style="display: flex; justify-content: center; align-items: center;">
+                                <button type="button" id="decrement-wine" class="inc-dec-btn">-</button>
+                                <div
+                                    style="display: flex; justify-content: center; align-items: center; min-width: 90px; max-height: 45px;">
+                                    <input type="number" id="wine" min="0" max="15" value="0" class="wine-input"
+                                        readonly>
+                                    <img id="wine-icon" src="./img/wine.svg" alt="Zero Wine" class="img-icon-zero">
+                                </div>
+                                <button type="button" id="increment-wine" class="inc-dec-btn">+</button>
+                            </div>
+                        </div>
+                        <!-- Beer -->
+                        <div class="liquid-input-child">
+                            <div class="liquid-input-title">
+                                Beer <small id="beer-unit"
+                                    style="color: #33333399; display: inline-block;">(25cl)</small>
+                            </div>
+                            <div style="display: flex; justify-content: center; align-items: center;">
+                                <button type="button" id="decrement-beer" class="inc-dec-btn">-</button>
+                                <div
+                                    style="display: flex; justify-content: center; align-items: center; min-width: 90px; max-height: 45px;">
+                                    <input type="number" id="beer" min="0" max="15" value="0" class="beer-input"
+                                        readonly>
+                                    <img id="beer-icon" src="./img/beer.svg" alt="Zero Beer" class="img-icon-zero">
+                                </div>
+                                <button type="button" id="increment-beer" class="inc-dec-btn">+</button>
+                            </div>
+                        </div>
+                        <div class="liquid-input-child empty-liquid-items"></div>
+                        <!-- Sport Drinks -->
+                        <div class="liquid-input-child">
+                            <div class="liquid-input-title">
+                                Sport Drinks <small id="sport-unit"
+                                    style="color: #33333399; display: inline-block;">(50cl)</small>
+                            </div>
+                            <div style="display: flex; justify-content: center; align-items: center;">
+                                <button type="button" id="decrement-sport" class="inc-dec-btn">-</button>
+                                <div
+                                    style="display: flex; justify-content: center; align-items: center; min-width: 90px; max-height: 45px;">
+                                    <input type="number" id="sport" min="0" max="15" value="0" class="sport-input"
+                                        readonly>
+                                    <img id="sport-icon" src="./img/sport.svg" alt="Zero Sport Drinks"
+                                        class="img-icon-zero">
+                                </div>
+                                <button type="button" id="increment-sport" class="inc-dec-btn">+</button>
+                            </div>
+                        </div>
+                        <!-- Energy Drinks -->
+                        <div class="liquid-input-child">
+                            <div class="liquid-input-title">
+                                Energy Drink <small id="energy-unit"
+                                    style="color: #33333399; display: inline-block;">(25cl)</small>
+                            </div>
+                            <div style="display: flex; justify-content: center; align-items: center;">
+                                <button type="button" id="decrement-energy" class="inc-dec-btn">-</button>
+                                <div
+                                    style="display: flex; justify-content: center; align-items: center; min-width: 90px; max-height: 45px;">
+                                    <input type="number" id="energy" min="0" max="15" value="0" class="energy-input"
+                                        readonly>
+                                    <img id="energy-icon" src="./img/energy.svg" alt="Zero Energy Drink"
+                                        class="img-icon-zero">
+                                </div>
+                                <button type="button" id="increment-energy" class="inc-dec-btn">+</button>
+                            </div>
+                        </div>
+                        <div class="liquid-input-child empty-liquid-items"></div>
+                    </div>
+                    <div class="info-content">
+                        <small>Water is the only naturally occurring zero-calorie drink.</small>
+                    </div>
+                </div>
             </div>
             <!-- Fourth Slide -->
             <div class="slide" id="slide-4">

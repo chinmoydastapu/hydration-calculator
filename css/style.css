@@ -195,6 +195,7 @@ input[type="number"]::-webkit-inner-spin-button {
     cursor: pointer;
 }
 
+/* Second Slider--------------------------------------------------- */
 /* Physical Activity------------------------------------------------- */
 .activity-input-field {
     height: 100%;
@@ -267,6 +268,60 @@ input[type="number"]::-webkit-inner-spin-button {
     font-size: 16px;
     cursor: pointer;
     outline: none;
+}
+
+/* Third Slider----------------------------------------------- */
+/* Liquid taking ----------------------------------------- */
+.liquid-input-field {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    justify-content: center;
+    gap: 0.6px;
+    background-color: #d8d8d8;
+}
+
+.liquid-input-title {
+    color: #333333;
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+.liquid-input-child {
+    padding: 17px;
+    background-color: #fff;
+    height: 87px;
+}
+
+.water-input,
+.soda-input,
+.diet-soda-input,
+.fruit-juice-input,
+.coffee-sugar-input,
+.coffee-input,
+.wine-input,
+.beer-input,
+.sport-input,
+.energy-input {
+    width: 60px;
+    height: 45px;
+    font-size: 32px;
+    font-weight: 500;
+    color: #333333;
+    border: none;
+    outline: none;
+    text-align: center;
+}
+
+.img-icon-zero {
+    display: none;
+    margin: 0 15px;
+    height: 45px;
+    width: 30px;
+}
+
+.empty-liquid-items {
+    display: block;
 }
 
 /* Slider Footer-------------------------------------------- */

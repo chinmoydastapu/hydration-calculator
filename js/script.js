@@ -429,3 +429,278 @@ function getClimate(country) {
         return "Moderate";
     }
 }
+
+// Liquid taking-----------------------------------------------------------------------------------------------------
+let isCl = true;
+const minLiquid = 0;
+const maxLiquid = 15;
+
+function updateDrinkValue(drinkInput, minValue, maxValue, amount, icon, decrementBtn, incrementBtn) {
+    let drinkValue = parseFloat(drinkInput.value);
+    drinkValue = Math.min(maxValue, Math.max(minValue, drinkValue + amount));
+    
+    // Update the input value
+    drinkInput.value = drinkValue;
+
+    // Update display and button styles
+    updateDrinkDisplay(drinkValue, minValue, drinkInput, icon);
+    updateDrinkButtonStyles(drinkValue, minValue, maxValue, decrementBtn, incrementBtn);
+
+    return drinkValue;
+}
+
+// Change button styles and display the icon if value is at minimum
+function updateDrinkDisplay(value, minValue, drinkInput, icon) {
+    if (value <= minValue) {
+        drinkInput.style.display = 'none';
+        icon.style.display = 'block';
+    } else {
+        drinkInput.style.display = 'block';
+        icon.style.display = 'none';
+    }
+}
+
+// Change button styles based on the current value
+function updateDrinkButtonStyles(value, minValue, maxValue, decrementBtn, incrementBtn) {
+    // If at minimum, change decrement button color
+    if (value <= minValue) {
+        decrementBtn.style.backgroundColor = '#fff';
+        decrementBtn.style.color = '#333333';
+        decrementBtn.style.border = '1px solid #333333';
+    } else {
+        decrementBtn.style.backgroundColor = '';
+        decrementBtn.style.color = '';
+        decrementBtn.style.border = '';
+    }
+
+    // If at maximum, change increment button color
+    if (value >= maxValue) {
+        incrementBtn.style.backgroundColor = '#fff';
+        incrementBtn.style.color = '#333333';
+        incrementBtn.style.border = '1px solid #333333';
+    } else {
+        incrementBtn.style.backgroundColor = '';
+        incrementBtn.style.color = '';
+        incrementBtn.style.border = '';
+    }
+}
+
+// Water selection-----------------------------------------------------
+const waterInput = document.getElementById('water');
+const waterIcon = document.getElementById('water-icon');
+const waterDecrementBtn = document.getElementById('decrement-water');
+const waterIncrementBtn = document.getElementById('increment-water');
+
+// Handle water decrement
+waterDecrementBtn.addEventListener('click', () => {
+    selectedWater = updateDrinkValue(waterInput, minLiquid, maxLiquid, -1, waterIcon, waterDecrementBtn, waterIncrementBtn);
+    updateResultFields();
+});
+
+// Handle water increment
+waterIncrementBtn.addEventListener('click', () => {
+    selectedWater = updateDrinkValue(waterInput, minLiquid, maxLiquid, 1, waterIcon, waterDecrementBtn, waterIncrementBtn);
+    updateResultFields();
+});
+
+// Initialize
+updateDrinkDisplay(selectedWater, minLiquid, waterInput, waterIcon);
+updateDrinkButtonStyles(selectedWater, minLiquid, maxLiquid, waterDecrementBtn, waterIncrementBtn);
+
+// Soda selection-----------------------------------------------------
+const sodaInput = document.getElementById('soda');
+const sodaIcon = document.getElementById('soda-icon');
+const sodaDecrementBtn = document.getElementById('decrement-soda');
+const sodaIncrementBtn = document.getElementById('increment-soda');
+
+// Handle soda decrement
+sodaDecrementBtn.addEventListener('click', () => {
+    selectedSoda = updateDrinkValue(sodaInput, minLiquid, maxLiquid, -1, sodaIcon, sodaDecrementBtn, sodaIncrementBtn);
+    updateResultFields();
+});
+
+// Handle soda increment
+sodaIncrementBtn.addEventListener('click', () => {
+    selectedSoda = updateDrinkValue(sodaInput, minLiquid, maxLiquid, 1, sodaIcon, sodaDecrementBtn, sodaIncrementBtn);
+    updateResultFields();
+});
+
+// Initialize
+updateDrinkDisplay(selectedSoda, minLiquid, sodaInput, sodaIcon);
+updateDrinkButtonStyles(selectedSoda, minLiquid, maxLiquid, sodaDecrementBtn, sodaIncrementBtn);
+
+// Diet Soda---------------------------------------------
+const dietSodaInput = document.getElementById('diet-soda');
+const dietSodaIcon = document.getElementById('diet-soda-icon');
+const dietSodaDecrementBtn = document.getElementById('decrement-diet-soda');
+const dietSodaIncrementBtn = document.getElementById('increment-diet-soda');
+
+// Handle diet soda decrement
+dietSodaDecrementBtn.addEventListener('click', () => {
+    selectedDietSoda = updateDrinkValue(dietSodaInput, minLiquid, maxLiquid, -1, dietSodaIcon, dietSodaDecrementBtn, dietSodaIncrementBtn);
+    updateResultFields();
+});
+
+// Handle diet soda increment
+dietSodaIncrementBtn.addEventListener('click', () => {
+    selectedDietSoda = updateDrinkValue(dietSodaInput, minLiquid, maxLiquid, 1, dietSodaIcon, dietSodaDecrementBtn, dietSodaIncrementBtn);
+    updateResultFields();
+});
+
+// Initialize
+updateDrinkDisplay(selectedDietSoda, minLiquid, dietSodaInput, dietSodaIcon);
+updateDrinkButtonStyles(selectedDietSoda, minLiquid, maxLiquid, dietSodaDecrementBtn, dietSodaIncrementBtn);
+
+// Fruit Juice----------------------------------------------
+const fruitJuiceInput = document.getElementById('fruit-juice');
+const fruitJuiceIcon = document.getElementById('fruit-juice-icon');
+const fruitJuiceDecrementBtn = document.getElementById('decrement-fruit-juice');
+const fruitJuiceIncrementBtn = document.getElementById('increment-fruit-juice');
+
+// Handle fruit juice decrement
+fruitJuiceDecrementBtn.addEventListener('click', () => {
+    selectedFruitJuice = updateDrinkValue(fruitJuiceInput, minLiquid, maxLiquid, -1, fruitJuiceIcon, fruitJuiceDecrementBtn, fruitJuiceIncrementBtn);
+    updateResultFields();
+});
+
+// Handle fruit juice increment
+fruitJuiceIncrementBtn.addEventListener('click', () => {
+    selectedFruitJuice = updateDrinkValue(fruitJuiceInput, minLiquid, maxLiquid, 1, fruitJuiceIcon, fruitJuiceDecrementBtn, fruitJuiceIncrementBtn);
+    updateResultFields();
+});
+
+// Initialize
+updateDrinkDisplay(selectedFruitJuice, minLiquid, fruitJuiceInput, fruitJuiceIcon);
+updateDrinkButtonStyles(selectedFruitJuice, minLiquid, maxLiquid, fruitJuiceDecrementBtn, fruitJuiceIncrementBtn);
+
+// Coffee Sugar-----------------------------------------------
+const coffeeSugarInput = document.getElementById('coffee-sugar');
+const coffeeSugarIcon = document.getElementById('coffee-sugar-icon');
+const coffeeSugarDecrementBtn = document.getElementById('decrement-coffee-sugar');
+const coffeeSugarIncrementBtn = document.getElementById('increment-coffee-sugar');
+
+// Handle coffee sugar decrement
+coffeeSugarDecrementBtn.addEventListener('click', () => {
+    selectedCoffeeSugar = updateDrinkValue(coffeeSugarInput, minLiquid, maxLiquid, -1, coffeeSugarIcon, coffeeSugarDecrementBtn, coffeeSugarIncrementBtn);
+    updateResultFields();
+});
+
+// Handle coffee sugar increment
+coffeeSugarIncrementBtn.addEventListener('click', () => {
+    selectedCoffeeSugar = updateDrinkValue(coffeeSugarInput, minLiquid, maxLiquid, 1, coffeeSugarIcon, coffeeSugarDecrementBtn, coffeeSugarIncrementBtn);
+    updateResultFields();
+});
+
+// Initialize
+updateDrinkDisplay(selectedCoffeeSugar, minLiquid, coffeeSugarInput, coffeeSugarIcon);
+updateDrinkButtonStyles(selectedCoffeeSugar, minLiquid, maxLiquid, coffeeSugarDecrementBtn, coffeeSugarIncrementBtn);
+
+// Coffee--------------------------------------------------------------
+const coffeeInput = document.getElementById('coffee');
+const coffeeIcon = document.getElementById('coffee-icon');
+const coffeeDecrementBtn = document.getElementById('decrement-coffee');
+const coffeeIncrementBtn = document.getElementById('increment-coffee');
+
+// Handle coffee decrement
+coffeeDecrementBtn.addEventListener('click', () => {
+    selectedCoffee = updateDrinkValue(coffeeInput, minLiquid, maxLiquid, -1, coffeeIcon, coffeeDecrementBtn, coffeeIncrementBtn);
+    updateResultFields();
+});
+
+// Handle coffee increment
+coffeeIncrementBtn.addEventListener('click', () => {
+    selectedCoffee = updateDrinkValue(coffeeInput, minLiquid, maxLiquid, 1, coffeeIcon, coffeeDecrementBtn, coffeeIncrementBtn);
+    updateResultFields();
+});
+
+// Initialize
+updateDrinkDisplay(selectedCoffee, minLiquid, coffeeInput, coffeeIcon);
+updateDrinkButtonStyles(selectedCoffee, minLiquid, maxLiquid, coffeeDecrementBtn, coffeeIncrementBtn);
+
+// Wine----------------------------------------------------------
+const wineInput = document.getElementById('wine');
+const wineIcon = document.getElementById('wine-icon');
+const wineDecrementBtn = document.getElementById('decrement-wine');
+const wineIncrementBtn = document.getElementById('increment-wine');
+
+// Handle wine decrement
+wineDecrementBtn.addEventListener('click', () => {
+    selectedWine = updateDrinkValue(wineInput, minLiquid, maxLiquid, -1, wineIcon, wineDecrementBtn, wineIncrementBtn);
+    updateResultFields();
+});
+
+// Handle wine increment
+wineIncrementBtn.addEventListener('click', () => {
+    selectedWine = updateDrinkValue(wineInput, minLiquid, maxLiquid, 1, wineIcon, wineDecrementBtn, wineIncrementBtn);
+    updateResultFields();
+});
+
+// Initialize
+updateDrinkDisplay(selectedWine, minLiquid, wineInput, wineIcon);
+updateDrinkButtonStyles(selectedWine, minLiquid, maxLiquid, wineDecrementBtn, wineIncrementBtn);
+
+// Beer---------------------------------------------------------
+const beerInput = document.getElementById('beer');
+const beerIcon = document.getElementById('beer-icon');
+const beerDecrementBtn = document.getElementById('decrement-beer');
+const beerIncrementBtn = document.getElementById('increment-beer');
+
+// Handle beer decrement
+beerDecrementBtn.addEventListener('click', () => {
+    selectedBeer = updateDrinkValue(beerInput, minLiquid, maxLiquid, -1, beerIcon, beerDecrementBtn, beerIncrementBtn);
+    updateResultFields();
+});
+
+// Handle beer increment
+beerIncrementBtn.addEventListener('click', () => {
+    selectedBeer = updateDrinkValue(beerInput, minLiquid, maxLiquid, 1, beerIcon, beerDecrementBtn, beerIncrementBtn);
+    updateResultFields();
+});
+
+// Initialize
+updateDrinkDisplay(selectedBeer, minLiquid, beerInput, beerIcon);
+updateDrinkButtonStyles(selectedBeer, minLiquid, maxLiquid, beerDecrementBtn, beerIncrementBtn);
+
+// Sport----------------------------------------------------
+const sportInput = document.getElementById('sport');
+const sportIcon = document.getElementById('sport-icon');
+const sportDecrementBtn = document.getElementById('decrement-sport');
+const sportIncrementBtn = document.getElementById('increment-sport');
+
+// Handle sport decrement
+sportDecrementBtn.addEventListener('click', () => {
+    selectedSport = updateDrinkValue(sportInput, minLiquid, maxLiquid, -1, sportIcon, sportDecrementBtn, sportIncrementBtn);
+    updateResultFields();
+});
+
+// Handle sport increment
+sportIncrementBtn.addEventListener('click', () => {
+    selectedSport = updateDrinkValue(sportInput, minLiquid, maxLiquid, 1, sportIcon, sportDecrementBtn, sportIncrementBtn);
+    updateResultFields();
+});
+
+// Initialize
+updateDrinkDisplay(selectedSport, minLiquid, sportInput, sportIcon);
+updateDrinkButtonStyles(selectedSport, minLiquid, maxLiquid, sportDecrementBtn, sportIncrementBtn);
+
+// Energy ---------------------------------------------------------
+const energyInput = document.getElementById('energy');
+const energyIcon = document.getElementById('energy-icon');
+const energyDecrementBtn = document.getElementById('decrement-energy');
+const energyIncrementBtn = document.getElementById('increment-energy');
+
+// Handle energy decrement
+energyDecrementBtn.addEventListener('click', () => {
+    selectedEnergy = updateDrinkValue(energyInput, minLiquid, maxLiquid, -1, energyIcon, energyDecrementBtn, energyIncrementBtn);
+    updateResultFields();
+});
+
+// Handle energy increment
+energyIncrementBtn.addEventListener('click', () => {
+    selectedEnergy = updateDrinkValue(energyInput, minLiquid, maxLiquid, 1, energyIcon, energyDecrementBtn, energyIncrementBtn);
+    updateResultFields();
+});
+
+// Initialize
+updateDrinkDisplay(selectedEnergy, minLiquid, energyInput, energyIcon);
+updateDrinkButtonStyles(selectedEnergy, minLiquid, maxLiquid, energyDecrementBtn, energyIncrementBtn);
