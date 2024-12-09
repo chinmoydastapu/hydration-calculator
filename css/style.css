@@ -195,6 +195,80 @@ input[type="number"]::-webkit-inner-spin-button {
     cursor: pointer;
 }
 
+/* Physical Activity------------------------------------------------- */
+.activity-input-field {
+    height: 100%;
+    gap: 10px;
+    flex-direction: column;
+}
+
+#activity-bars {
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    gap: 10px;
+}
+
+.activity-bar {
+    width: 20px;
+    background-color: #d8d8d8;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.activity-bar.active {
+    background-color: #294f80;
+}
+
+.bar-1 {
+    height: 20px;
+}
+
+.bar-2 {
+    height: 40px;
+}
+
+.bar-3 {
+    height: 60px;
+}
+
+/* Country ---------------------------------- */
+.country-input-field {
+    width: 90%;
+    margin: 20px auto;
+    flex-direction: column;
+    position: relative;
+}
+
+.country-input-field::after {
+    content: '\25BC';
+    font-size: 10px;
+    display: grid;
+    place-items: center;
+    color: #fff;
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 50px;
+    width: 50px;
+    background-color: #294f80;
+    pointer-events: none;
+}
+
+#country {
+    appearance: none;
+    background-color: #f4f7f9;
+    color: #333333;
+    border: none;
+    padding: 0 15px;
+    border-radius: 2px;
+    height: 50px;
+    width: 100%;
+    font-size: 16px;
+    cursor: pointer;
+    outline: none;
+}
+
 /* Slider Footer-------------------------------------------- */
 .footer {
     display: flex;

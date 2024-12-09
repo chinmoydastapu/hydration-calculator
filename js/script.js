@@ -353,3 +353,79 @@ function toggleHeightUnit(isCmSelected) {
     heightInput.value = isCm ? (height / cmToInchFactor).toFixed(0) : (height * cmToInchFactor).toFixed(0);
     heightUnitSpan.textContent = isCm ? 'cm' : 'in';
 }
+
+// Physical activity selection----------------------------------------------------------
+const activityBars = document.querySelectorAll('.activity-bar');
+const activityRange = document.getElementById('activity-range');
+const selectedActivityText = document.getElementById('selected-activity');
+
+function updateActivityBars(index) {
+    activityBars.forEach((bar, idx) => {
+        if (idx <= index) {
+            bar.classList.add('active');
+        } else {
+            bar.classList.remove('active');
+        }
+    });
+}
+
+function updateActivity() {
+    const index = this.dataset.index ? parseInt(this.dataset.index) : parseInt(activityRange.value);
+    updateActivityBars(index);
+
+    selectedActivity = activityBars[index].getAttribute('data-value');
+    selectedActivityText.textContent = selectedActivity.charAt(0).toUpperCase() + selectedActivity.slice(1);
+    activityRange.value = index;
+    updateResultFields();
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    updateActivity.call(document.querySelector('.activity-bar[data-value="moderate"]'));
+});
+
+activityBars.forEach((bar, index) => {
+    bar.dataset.index = index;
+    bar.addEventListener('click', updateActivity);
+});
+
+activityRange.addEventListener('input', () => {
+    updateActivity.call({dataset: {index: activityRange.value}});
+});
+
+// Country selection----------------------------------------------------------
+const countrySelect = document.getElementById('country');
+
+// Update the selected country when a new country is chosen
+countrySelect.addEventListener('change', (e) => {
+    selectedCountry = e.target.value;
+    updateResultFields();
+});
+
+// Climate calculation according to country
+function getClimate(country) {
+    const climateData = {
+        "UK": "Cool",
+        "Argentina": "Moderate",
+        "Brazil": "Hot",
+        "China": "Moderate",
+        "France": "Moderate",
+        "Germany": "Cool",
+        "Indonesia": "Hot",
+        "Japan": "Moderate",
+        "Mexico": "Hot",
+        "Poland": "Cool",
+        "Spain": "Hot",
+        "Turkey": "Moderate",
+        "Uruguay": "Moderate"
+    };
+
+    // Normalize the input to match keys (case-insensitive)
+    country = country.trim();
+
+    // Check if the country is in the climateData
+    if (climateData[country]) {
+        return climateData[country];
+    } else {
+        return "Moderate";
+    }
+}

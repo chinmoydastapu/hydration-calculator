@@ -89,7 +89,57 @@
             </div>
             <!-- Second Slide -->
             <div class="slide" id="slide-2">
+                <h2>Tell us about you</h2>
+                <div class="form-container">
+                    <div class="input-field-container" id="activity-field-container">
+                        <div style="display: flex; justify-content: space-between; align-items: first baseline;">
+                            <label for="activity">Physical Activity</label>
+                            <img id="activity-info-button" class="info-btn" src="./img/info-button-icon.svg" alt="i">
+                        </div>
+                        <div class="activity-input-field">
+                            <div id="activity-bars">
+                                <div class="activity-bar bar-1" data-value="sedentary"></div>
+                                <div class="activity-bar bar-2" data-value="moderate"></div>
+                                <div class="activity-bar bar-3" data-value="active"></div>
+                            </div>
+                            <input type="range" id="activity-range" min="0" max="2" value="1">
+                            <p id="selected-activity"></p>
+                        </div>
+                        <div class="info-content">
+                            <small>"Maintaining good hydration ensures optimal cognitive performance."</small>
+                        </div>
+                    </div>
 
+                    <div class="input-field-container" id="country-field-container">
+                        <div style="display: flex; justify-content: space-between; align-items: first baseline;">
+                            <label for="country">Country</label>
+                            <img id="country-info-button" class="info-btn" src="./img/info-button-icon.svg" alt="i">
+                        </div>
+                        <div class="country-input-field">
+                            <select id="country">
+                                <option value="UK" selected>UK</option>
+                                <option value="Argentina">Argentina</option>
+                                <option value="Brazil">Brazil</option>
+                                <option value="China">China</option>
+                                <option value="France">France</option>
+                                <option value="Germany">Germany</option>
+                                <option value="Indonesia">Indonesia</option>
+                                <option value="Japan">Japan</option>
+                                <option value="Mexico">Mexico</option>
+                                <option value="Poland">Poland</option>
+                                <option value="Spain">Spain</option>
+                                <option value="Turkey">Turkey</option>
+                                <option value="Uruguay">Uruguay</option>
+                                <option value="Other Country">Other Country</option>
+                            </select>
+                            <img src="./img/country-map-img.png" alt="CountryImg">
+                        </div>
+                        <div class="info-content">
+                            <small>Physical exertion, hot/humid weather, central heating and high altitude can all
+                                increase water loss.</small>
+                        </div>
+                    </div>
+                </div>
             </div>
             <!-- Third Slide -->
             <div class="slide" id="slide-3">
