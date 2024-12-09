@@ -37,6 +37,164 @@ body {
     font-weight: 500;
 }
 
+/* First Slider-------------------- */
+.form-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.input-field-container {
+    padding: 14px 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(51, 51, 51, .2);
+    transition: background-color 0.3s ease;
+}
+
+.input-field-container label {
+    display: block;
+    font-size: 20px;
+    margin-bottom: 15px;
+    position: relative;
+    --underline-color: #294f80;
+}
+
+.input-field-container label::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -15px;
+    width: 22px;
+    height: 3px;
+    background-color: var(--underline-color);
+}
+
+.info-btn {
+    cursor: pointer;
+}
+
+.info-content {
+    margin-top: 15px;
+    margin-bottom: 3px;
+    display: none;
+}
+
+/* Gender div ------------------------ */
+.gender-input-field,
+.age-input-field,
+.weight-input-field,
+.height-input-field,
+.activity-input-field,
+.country-input-field,
+.liquid-input-field {
+    margin: 20px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    transition: justify-content 0.5s ease, gap 0.5s ease;
+}
+
+.gender-input-field img {
+    cursor: pointer;
+}
+
+.gender-input-field {
+    position: relative;
+}
+
+.gender-input-field::after {
+    content: '\25BC';
+    font-size: 10px;
+    display: grid;
+    place-items: center;
+    color: #fff;
+    position: absolute;
+    right: 0;
+    top: 5px;
+    height: 50px;
+    width: 50px;
+    background-color: #294f80;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.gender-input-field.hide-arrow::after {
+    opacity: 0;
+}
+
+.female-options {
+    margin-left: 10px;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    appearance: none;
+    background-color: #f4f7f9;
+    color: #333333;
+    border: none;
+    padding: 0 15px;
+    border-radius: 2px;
+    height: 50px;
+    width: 100%;
+    font-size: 16px;
+    cursor: pointer;
+    outline: none;
+}
+
+.female-options.show {
+    opacity: 1;
+}
+
+/* Age div ----------------------------------- */
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.age-input-field {
+    flex-direction: column;
+    gap: 10px;
+}
+
+#age,
+.weight-input,
+.height-input {
+    width: 60px;
+    font-size: 32px;
+    font-weight: 500;
+    color: #333333;
+    border: none;
+    outline: none;
+    text-align: end;
+}
+
+#age-range {
+    width: 150px;
+    height: 8px;
+    background-color: #294f80;
+    border-radius: 5px;
+    cursor: pointer;
+    outline: none;
+    transition: background-color 0.5s ease;
+}
+
+/* Weight & Height div ------------------------------------------- */
+.inc-dec-btn {
+    width: 30px;
+    height: 30px;
+    font-size: 21px;
+    background-color: #294f80;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
 /* Slider Footer-------------------------------------------- */
 .footer {
     display: flex;
