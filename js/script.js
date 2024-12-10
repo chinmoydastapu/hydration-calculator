@@ -873,3 +873,106 @@ function toggleFindOutMore(isHidden) {
     const findOutMoreContent = document.getElementById('find-out-more-content');
     findOutMoreContent.style.display = isHidden ? 'block' : 'none';
 }
+
+// i button feature-----------------------------------------------------
+// Function to toggle info content and update underline color
+function toggleInfoContent(containerField, originalContentDiv, updatedContentDiv, iBtn) {
+    const label = containerField.querySelector('label');
+
+    if (originalContentDiv.style.display === 'none') {
+        originalContentDiv.id === 'liquid' ? originalContentDiv.style.display = 'grid' : originalContentDiv.style.display = 'flex';
+        updatedContentDiv.style.display = 'none';
+        containerField.style.backgroundColor = '';
+        containerField.style.color = '#333333';
+        iBtn.src = '../img/info-button-icon.svg';
+        
+        // Change the underline (pseudo-element) color to default
+        label.style.setProperty('--underline-color', '#294f80');
+    } else {
+        originalContentDiv.style.display = 'none';
+        updatedContentDiv.style.display = 'block';
+        containerField.style.backgroundColor = '#294f80';
+        containerField.style.color = '#fff';
+        iBtn.src = '../img/close-icon-white.svg';
+        
+        // Change the underline (pseudo-element) color to white (or any other color)
+        label.style.setProperty('--underline-color', '#fff');
+    }
+}
+
+// Gender info
+const genderFieldContainer = document.getElementById('gender-field-container');
+document.getElementById('gender-info-button').addEventListener('click', function () {
+    toggleInfoContent(
+        genderFieldContainer,
+        genderFieldContainer.querySelector('.gender-input-field'),
+        genderFieldContainer.querySelector('.info-content'),
+        document.getElementById('gender-info-button')
+    );
+});
+
+// Age info
+const ageFieldContainer = document.getElementById('age-field-container');
+document.getElementById('age-info-button').addEventListener('click', function () {
+    toggleInfoContent(
+        ageFieldContainer,
+        ageFieldContainer.querySelector('.age-input-field'),
+        ageFieldContainer.querySelector('.info-content'),
+        document.getElementById('age-info-button')
+    );
+});
+
+// Weight info
+const weightFieldContainer = document.getElementById('weight-field-container');
+document.getElementById('weight-info-button').addEventListener('click', function () {
+    toggleInfoContent(
+        weightFieldContainer,
+        weightFieldContainer.querySelector('.weight-input-field'),
+        weightFieldContainer.querySelector('.info-content'),
+        document.getElementById('weight-info-button')
+    );
+});
+
+// Height info
+const heightFieldContainer = document.getElementById('height-field-container');
+document.getElementById('height-info-button').addEventListener('click', function () {
+    toggleInfoContent(
+        heightFieldContainer,
+        heightFieldContainer.querySelector('.height-input-field'),
+        heightFieldContainer.querySelector('.info-content'),
+        document.getElementById('height-info-button')
+    );
+});
+
+// Physical Activity info
+const activityFieldContainer = document.getElementById('activity-field-container');
+document.getElementById('activity-info-button').addEventListener('click', function () {
+    toggleInfoContent(
+        activityFieldContainer,
+        activityFieldContainer.querySelector('.activity-input-field'),
+        activityFieldContainer.querySelector('.info-content'),
+        document.getElementById('activity-info-button')
+    );
+});
+
+// Country info
+const countryFieldContainer = document.getElementById('country-field-container');
+document.getElementById('country-info-button').addEventListener('click', function () {
+    toggleInfoContent(
+        countryFieldContainer,
+        countryFieldContainer.querySelector('.country-input-field'),
+        countryFieldContainer.querySelector('.info-content'),
+        document.getElementById('country-info-button')
+    );
+});
+
+// Drink info
+const liquidFieldContainer = document.getElementById('liquid-field-container');
+document.getElementById('liquid-info-button').addEventListener('click', function () {
+    toggleInfoContent(
+        liquidFieldContainer,
+        liquidFieldContainer.querySelector('.liquid-input-field'),
+        liquidFieldContainer.querySelector('.info-content'),
+        document.getElementById('liquid-info-button')
+    );
+});
