@@ -1,0 +1,92 @@
+.settings-icon-container {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+}
+
+#toggle-btn {
+    background-color: #fff;
+    color: #294f80;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 10px;
+    font-size: 24px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+    width: 35px;
+    height: 50px;
+    position: relative;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+#settings-panel {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: #fff;
+    height: 40px;
+    width: 0;
+    padding: 15px;
+    overflow: hidden;
+    box-shadow: none;
+    transition: width 0.5s ease;
+    position: absolute;
+    right: 1px;
+    z-index: 1;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+#settings-panel.visible {
+    width: 375px;
+}
+
+.toggle-group {
+    display: flex;
+    justify-content: space-between;
+    margin-right: 10px;
+}
+
+.toggle-group p {
+    border: none;
+    background-color: #ddd;
+    width: 40px;
+    height: 40px;
+    font-size: 16px;
+    padding: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.toggle-group p.active {
+    background-color: #294f80;
+    color: #fff;
+}
+
+.toggle-group p:not(.active):hover {
+    background-color: #ccc;
+}
+
+@media (max-width: 480px) {
+    #settings-panel.visible {
+        width: 270px;
+    }
+
+    .toggle-group p {
+        width: 25px;
+        height: 25px;
+    }
+}

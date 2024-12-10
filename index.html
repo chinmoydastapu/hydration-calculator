@@ -6,11 +6,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hydration Calculator</title>
     <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/settings.css">
 </head>
 
 <body>
     <!-- Slider -->
     <div class="slider-container">
+        <!-- Settings Button -->
+        <div class="settings-icon-container" id="settings-icon-div">
+            <p id="toggle-btn" onclick="toggleSettings()"><img src="./img/setting-icon.svg" alt="S"></p>
+            <div id="settings-panel" class="hidden">
+                <div class="toggle-group">
+                    <p id="kg-btn" class="active" onclick="toggleUnits('kg', 'lb')">kg</p>
+                    <p id="lb-btn" onclick="toggleUnits('lb', 'kg')">lb</p>
+                </div>
+                <div class="toggle-group">
+                    <p id="cm-btn" class="active" onclick="toggleUnits('cm', 'inch')">cm</p>
+                    <p id="inch-btn" onclick="toggleUnits('inch', 'cm')">in</p>
+                </div>
+                <div class="toggle-group">
+                    <p id="cl-btn" class="active" onclick="toggleUnits('cl', 'oz')">cl</p>
+                    <p id="oz-btn" onclick="toggleUnits('oz', 'cl')">oz</p>
+                </div>
+            </div>
+        </div>
         <!-- Slider Contents -->
         <div class="slider-content">
             <!-- First Slide -->
@@ -353,6 +372,7 @@
         </div>
     </div>
 
+    <script src="./js/settings.js"></script>
     <script src="./js/script.js"></script>
 </body>
 
