@@ -92,6 +92,60 @@ let selectedBeer = 0;
 let selectedSport = 0;
 let selectedEnergy = 0;
 
+function updateResultFields () {
+    const waterLossDiv = document.getElementById('water-loss-div');
+    const waterGainFromFoodDiv = document.getElementById('water-gain-div');
+    const hydrationStatusDiv = document.getElementById('hydration-status-div');
+    const actualLiquidIntakeDiv = document.getElementById('actual-liquid-intake-div');
+    const hydrationStatusTextDiv = document.getElementById('hydration-status-text-div');
+    const findOutMoreDiv = document.getElementById('find-out-more-div');
+    // console.log("Selected Gender: ", selectedGender);
+    // console.log("Selected Age: ", selectedAge);
+    // console.log("Selected weight: ", selectedWeight);
+    // console.log("Selected height: ", selectedHeight);
+    // console.log("Selected activity: ", selectedActivity);
+    // console.log("Selected country: ", selectedCountry);
+    // console.log("Weather:", getClimate(selectedCountry));
+    // console.log("Selected liquid: ", 
+    //     (selectedWater+selectedSoda+selectedDietSoda+selectedFruitJuice+selectedCoffeeSugar+selectedCoffee+selectedWine+selectedBeer+selectedSport+selectedEnergy)
+    // );
+
+    // Update selected weight and height into kg and cm
+    if (selectedUnits[0] === 'lb') {
+        selectedWeight *= 0.454;
+    }
+    if (selectedUnits[1] === 'inch') {
+        selectedHeight *= 2.54;
+    }
+
+    // Calculate total water loss
+    const totalWaterLoss = calculateWaterDeficit((selectedGender === 'breastfeeding' || selectedGender === 'pregnant') ? 'female' : selectedGender, selectedAge, selectedHeight, selectedWeight, getClimate(selectedCountry), selectedActivity);
+    waterLossDiv.innerText = totalWaterLoss;
+
+    // Calculate climate and water gain according to country
+    if(getClimate(selectedCountry).toLowerCase() === 'hot') waterGainFromFoodDiv.innerText = 0.5;
+    else if(getClimate(selectedCountry).toLowerCase() === 'moderate') waterGainFromFoodDiv.innerText = 0.6;
+    else if(getClimate(selectedCountry).toLowerCase() === 'cool') waterGainFromFoodDiv.innerText = 0.7;
+    
+    // Calculate hydration status
+    const hydrationStatus = (parseFloat(totalWaterLoss) - parseFloat(waterGainFromFoodDiv.innerText)).toFixed(1);
+    hydrationStatusDiv.innerText = hydrationStatus;
+    
+    // Calculate actual water intake
+    const actualLiquidIntake = (selectedWater*0.25+selectedSoda*0.33+selectedDietSoda*0.33+selectedFruitJuice*0.25+selectedCoffeeSugar*0.125+selectedCoffee*0.125+selectedWine*0.125+selectedBeer*0.25+selectedSport*0.5+selectedEnergy*0.25).toFixed(1);
+    actualLiquidIntakeDiv.innerText = actualLiquidIntake;
+
+    // Publish the moral dynamically
+    hydrationStatusTextDiv.innerText = hydrationStatus <= actualLiquidIntake ? "“You already seem to be taking in enough liquid every day.”" : "“Careful – it looks like you need to drink more than you thought!”";
+
+    // Publish the find out more dynamically
+    if (hydrationStatus <= actualLiquidIntake) {
+        findOutMoreDiv.innerHTML = "Based on the information that you have given us, you are drinking a sufficient amount to compensate your daily water losses.<br>Our bodies are perpetually losing water. Much of this loss occurs unconsciously, through breathing and sweating (which happens constantly, even in cool conditions), and so it is easy to under-estimate how much water we need to consume to maintain our water balance.<br>It's true that all liquids hydrate, but it's also true that water is the only liquid our bodies need to hydrate.<br>Water is the most healthy and natural way to maintain you body's water balance.<br>It is recommended that you drink enough water every day. This is a simple and natural way to maintain your body's water balance. Be aware that factors such as hot weather, central heating, and physical exertion can all increase your water requirements.<br>Drinking at least 2L of water a day is a simple step towards a healthier lifestyle. Get into the habit of drinking at least this much water every day, and feel the benefits of being well hydrated.";
+    } else {
+        findOutMoreDiv.innerHTML = "Based on the information that you have given us, you do not drink enough to compensate your daily water losses.<br>Our bodies are perpetually losing water. Much of this loss occurs unconsciously, through breathing and sweating (which happens constantly, even in cool conditions), and so it is easy to under-estimate how much water we need to consume to maintain our water balance.<br>It's true that all liquids hydrate, but it's also true that water is the only liquid our bodies need to hydrate.<br>Water is the most healthy and natural way to maintain you body's water balance.<br>It is recommended that you drink enough water every day. This is a simple and natural way to maintain your body's water balance. Be aware that factors such as hot weather, central heating, and physical exertion can all increase your water requirements.<br>Drinking at least 2L of water a day is a simple step towards a healthier lifestyle. Get into the habit of drinking at least this much water every day, and feel the benefits of being well hydrated.";
+    }
+}
+
 // Gender selection------------------------------------------------------------------------
 const maleImg = document.querySelector('.gender-input-field img[alt="Male"]');
 const femaleImg = document.querySelector('.gender-input-field img[alt="Female"]');
@@ -704,3 +758,118 @@ energyIncrementBtn.addEventListener('click', () => {
 // Initialize
 updateDrinkDisplay(selectedEnergy, minLiquid, energyInput, energyIcon);
 updateDrinkButtonStyles(selectedEnergy, minLiquid, maxLiquid, energyDecrementBtn, energyIncrementBtn);
+
+// Listen for unit change (cl or oz) and update the input and label accordingly-----------------------------------------------------
+const waterUnitSpan = document.getElementById('water-unit');
+const sodaUnitSpan = document.getElementById('soda-unit');
+const dietSodaUnitSpan = document.getElementById('diet-soda-unit');
+const fruitJuiceUnitSpan = document.getElementById('fruit-juice-unit');
+const coffeeSugarUnitSpan = document.getElementById('coffee-sugar-unit');
+const coffeeUnitSpan = document.getElementById('coffee-unit');
+const wineUnitSpan = document.getElementById('wine-unit');
+const beerUnitSpan = document.getElementById('beer-unit');
+const sportUnitSpan = document.getElementById('sport-unit');
+const energyUnitSpan = document.getElementById('energy-unit');
+
+function toggleLiquidUnit(isClSelected) {
+    isCl = isClSelected;
+    waterUnitSpan.textContent = isCl ? '(25cl)' : '(8.5oz)';
+    sodaUnitSpan.textContent = isCl ? '(33cl)' : '(11.2oz)';
+    dietSodaUnitSpan.textContent = isCl ? '(33cl)' : '(11.2oz)';
+    fruitJuiceUnitSpan.textContent = isCl ? '(25cl)' : '(8.5oz)';
+    coffeeSugarUnitSpan.textContent = isCl ? '(12.5cl)' : '(4.2oz)';
+    coffeeUnitSpan.textContent = isCl ? '(12.5cl)' : '(4.2oz)';
+    wineUnitSpan.textContent = isCl ? '(12.5cl)' : '(4.2oz)';
+    beerUnitSpan.textContent = isCl ? '(25cl)' : '(8.5oz)';
+    sportUnitSpan.textContent = isCl ? '(50cl)' : '(16.9oz)';
+    energyUnitSpan.textContent = isCl ? '(25cl)' : '(8.5oz)';
+}
+
+// Calculate water loss----------------------------------------------------------------------------
+function calculateWaterDeficit(gender, age, height, weight, climate, activityLevel) {
+    // Convert string inputs to lowercase for case-insensitive matching
+    gender = gender.toLowerCase();
+    climate = climate.toLowerCase();
+    activityLevel = activityLevel.toLowerCase();
+
+    // Step 1: Calculate Body Surface Area (BSA) using DuBois formula
+    const BSA = 0.007184 * Math.pow(height, 0.725) * Math.pow(weight, 0.425);
+
+    // Step 2: Estimate Skin Evaporation Loss based on climate
+    const evaporationRates = {
+        "hot": 650,
+        "moderate": 450,
+        "cool": 300
+    };
+    const skinEvaporationLoss = BSA * evaporationRates[climate];
+
+    // Step 3: Calculate Caloric Expenditure using Mifflin-St Jeor equation
+    let BMR;
+    if (gender === "male") {
+        BMR = 10 * weight + 6.25 * height - 5 * age + 5;
+    } else if (gender === "female") {
+        BMR = 10 * weight + 6.25 * height - 5 * age - 161;
+    }
+    
+    const activityFactors = {
+        "sedentary": 1.2,
+        "moderate": 1.55,
+        "active": 1.9
+    };
+    const calories = BMR * activityFactors[activityLevel];
+
+    // Step 4: Calculate Respiratory Water Loss
+    const respiratoryLoss = calories * 0.12;
+
+    // Step 5: Calculate Metabolic Water Production
+    const metabolicWaterProduction = calories * 0.12;
+
+    // Step 6: Calculate Skin Sweat Loss based on climate and activity level
+    const sweatRates = {
+        "hot": 12,
+        "moderate": 8,
+        "cool": 5
+    };
+    const sweatLoss = weight * sweatRates[climate];  // Assuming 1 hour of activity
+
+    // Step 7: Calculate Fixed Water Loss
+    const faecalLoss = 200;
+    const urineLoss = 1000;
+
+    // Step 8: Calculate Total Water Deficit
+    const waterDeficit = skinEvaporationLoss + respiratoryLoss + sweatLoss + faecalLoss + urineLoss - metabolicWaterProduction;
+
+    return (waterDeficit/1000).toFixed(1); 
+}
+
+// Hints and tips------------------------------------------------------------------------------------------
+function toggleHintsTips(isHidden) {
+    const settingsIconDiv = document.getElementById('settings-icon-div');
+    settingsIconDiv.style.visibility = isHidden ? 'hidden' : 'visible';
+
+    const slide4Container = document.getElementById('slide-4');
+    slide4Container.style.display = isHidden ? 'none' : 'block';
+
+    const sliderFooterDiv = document.getElementById('slider-footer-div');
+    sliderFooterDiv.style.opacity = isHidden ? 0 : 1;
+    sliderFooterDiv.style.pointerEvents = isHidden ? 'none' : 'auto';
+
+    const hintsTipsContent = document.getElementById('hints-tips-content');
+    hintsTipsContent.style.display = isHidden ? 'block' : 'none';
+}
+
+// Find out more------------------------------------------------------------------------------------------
+function toggleFindOutMore(isHidden) {
+    const settingsIconDiv = document.getElementById('settings-icon-div');
+    settingsIconDiv.style.visibility = isHidden ? 'hidden' : 'visible';
+
+    const slide4Container = document.getElementById('slide-4');
+    slide4Container.style.display = isHidden ? 'none' : 'block';
+
+    const sliderFooterDiv = document.getElementById('slider-footer-div');
+    sliderFooterDiv.style.opacity = isHidden ? 0 : 1;
+    sliderFooterDiv.style.pointerEvents = isHidden ? 'none' : 'auto';
+
+    const findOutMoreContent = document.getElementById('find-out-more-content');
+    findOutMoreContent.style.display = isHidden ? 'block' : 'none';
+}

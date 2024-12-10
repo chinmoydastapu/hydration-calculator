@@ -355,7 +355,89 @@
             </div>
             <!-- Fourth Slide -->
             <div class="slide" id="slide-4">
+                <h2>Results</h2>
+                <div class="results-field-container">
+                    <div class="left-result-container">
+                        <div class="input-field-container result1-container">
+                            <div style="display: flex; justify-content: space-between; align-items: first baseline;">
+                                <label>Your Hydration Status</label>
+                            </div>
+                            <div class="result1-field" id="result1">
+                                <div id="hydration-status-text-div">
+                                    “Careful – it looks like you need to drink more than you thought!”
+                                </div>
+                                <div class="hints-find-out" onclick="toggleFindOutMore(true)">
+                                    FIND OUT MORE
+                                </div>
+                            </div>
+                        </div>
+                        <div class="input-field-container result2-container">
+                            <div style="display: flex; justify-content: space-between; align-items: first baseline;">
+                                <label>Your Daily Calorie Intake from Liquids</label>
+                            </div>
+                            <div class="result2-field" id="result2">
+                                <div>
+                                    Your daily calorie intake from liquids is within World Health Organisation
+                                    guidelines.
+                                </div>
+                                <div class="hints-find-out" onclick="toggleHintsTips(true)">
+                                    HINTS AND TIPS
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="input-field-container result3-container">
+                        <div
+                            style="display: flex; justify-content: space-between; align-items: first baseline; padding: 14px 20px 0px 20px;">
+                            <label>Water in your body</label>
+                        </div>
+                        <div class="result3-field" id="result3">
+                            <div class="result3-items">
+                                <p>Your Hydration Status</p>
+                                <p><span class="result-liter" id="hydration-status-div">2.7</span><small
+                                        style="opacity: 0.7;">L</small></p>
+                            </div>
+                            <div class="result3-items">
+                                <p>Your Actual Total Intake</p>
+                                <p><span class="result-liter" id="actual-liquid-intake-div">0</span><small
+                                        style="opacity: 0.7;">L</small></p>
+                            </div>
+                            <div class="result3-items">
+                                <p>The Water You Typically Lose Everyday</p>
+                                <p><span class="result-liter" id="water-loss-div">3.5</span><small
+                                        style="opacity: 0.7;">L</small></p>
+                            </div>
+                            <div class="result3-items">
+                                <p>The Water You Typically Get from Food Everyday</p>
+                                <p><span class="result-liter" id="water-gain-div">0.7</span><small
+                                        style="opacity: 0.7;">L</small></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
+            <!-- Hints and Tips -->
+            <div id="hints-tips-content">
+                <span id="close-hints-tips-icon" onclick="toggleHintsTips(false)"><img src="./img/close-icon.svg"
+                        alt="X"></span>
+                <h2>Hints and Tips</h2>
+                Did you know that...A 330ml can of typical sugar-sweetened soft drink contains about 120 kCal. If you
+                take in 120 kCal more than you use every day for a year, you could gain 5kg It takes about 35 minutes of
+                walking or 17 minutes of jogging to burn off 120 kcalories. Calories from sugar-sweetened beverages are
+                often called ‘stealth’ calories because they don’t make you feel full like calories from food. That
+                means it’s easy to take in extra calories almost without noticing. Water is the only liquid necessary
+                for proper hydration. Other drinks contributes to your daily hydration thanks to their water content,
+                but they may also add elements that your body has to process and to eliminate like sodium and artificial
+                ingredients. Other elements like sugars are not eliminated but stored and added to your caloric balance.
+                By drinking just water, you hydrate your body without burdening it with unnecessary elements.
+            </div>
+            <!-- Find out more -->
+            <div id="find-out-more-content">
+                <span id="close-find-out-more-icon" onclick="toggleFindOutMore(false)"><img src="./img/close-icon.svg"
+                        alt="X"></span>
+                <h2>Find Out More</h2>
+                <div id="find-out-more-div"></div>
             </div>
         </div>
 
