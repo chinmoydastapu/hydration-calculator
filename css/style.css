@@ -471,3 +471,121 @@ input[type="number"]::-webkit-inner-spin-button {
     border-radius: 160px;
     cursor: pointer;
 }
+
+/* Responsive */
+@media (max-width: 768px) {
+    .slider-container {
+        width: 100%;
+    }
+
+    .form-container {
+        grid-template-columns: 1fr;
+    }
+
+    .input-field-container {
+        align-items: center;
+    }
+
+    #activity-bars {
+        justify-content: center;
+        width: 100%;
+    }
+
+    .country-input-field {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .country-input-field img {
+        width: 50%;
+        margin-top: 10px;
+    }
+
+    .activity-input-field input[type="range"],
+    .country-input-field select {
+        width: 80%;
+    }
+
+    .liquid-input-title {
+        font-size: 12px;
+        margin-bottom: 5px;
+    }
+
+    .liquid-input-child {
+        padding: 10px;
+        height: auto;
+    }
+
+    .water-input,
+    .soda-input,
+    .diet-soda-input,
+    .fruit-juice-input,
+    .coffee-sugar-input,
+    .coffee-input,
+    .wine-input,
+    .beer-input,
+    .sport-input,
+    .energy-input {
+        width: 50px;
+        height: 35px;
+    }
+
+    .img-icon-zero {
+        display: block;
+        margin: 0 10px;
+        height: 35px;
+        width: 25px;
+    }
+
+    .footer {
+        display: block;
+        text-align: center;
+    }
+
+    #prev-btn,
+    #next-btn,
+    #see-results-btn {
+        margin: 10px 0;
+    }
+}
+
+@media (max-width: 1200px) {
+    .liquid-input-field {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .empty-liquid-items {
+        display: none;
+    }
+
+    .results-field-container {
+        flex-direction: column;
+    }
+
+    .left-result-container,
+    .result3-container {
+        width: 100%;
+        padding: 0;
+    }
+
+    .result1-container,
+    .result2-container {
+        width: 90%;
+    }
+
+    .result1-field,
+    .result2-field,
+    .result3-field {
+        margin-top: 10px;
+    }
+
+    .result3-field {
+        height: auto;
+    }
+}
+
+@media (max-width: 500px) {
+    .liquid-input-field {
+        grid-template-columns: 1fr;
+    }
+}
