@@ -35,4 +35,4 @@ Hydration is essential for maintaining optimal health. The **Hydration Calculato
 
 ## Deployments
 
-This site is hosted on `Netlify`. You can watch the live site via: [Hydration Calculator]()
+This site is hosted on `Netlify`. You can watch the live site via: [Hydration Calculator](https://hydration-calculator-chinmoy.netlify.app/)
